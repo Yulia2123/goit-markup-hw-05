@@ -49,7 +49,8 @@
                 <h1 class="hero-title">
                     Effective Solutions for Your Business
                 </h1>
-                <button type="button" class="hero-button">Order Service</button>
+                <!--<button type="button" class="hero-button">Order Service</button>-->
+                <a href="#modal" class="hero-button">Order Service</a>
             </div>
         </section>
         <!--benefits-->
@@ -412,7 +413,7 @@
             </form>
         </div>
     </footer>
-    <div class="overlay-they is-open">
+    <div id="modal" class="overlay-they">
         <div class="modal-modal">
             <button type="button" class="modal-close">
                 <svg width="8" height="8">
@@ -424,10 +425,10 @@
             </p>
             <form class="modal-form">
                 <label class="modal-form" for="user-name">Name</label>    
-                <div class="icon-wriper-users-one">
+                <div class="icon-wriper-users">
                     <input 
                         type="text"
-                        class="modal-input-one"
+                        class="modal-input"
                         name="user-name"
                         id="user-name"
                         required

@@ -269,23 +269,26 @@ body {
 }
 
 .hero-button {
-    display: block;
+    /*display: block;*/
     min-width: 169px;
     height: 56px;
-    border: none;
-    border-radius: 4px;
-    padding: 16px 32px;
-    font-weight: 500;
-    font-size: 16px;
     letter-spacing: 0.04em;
     line-height: 1.5;
-    color: #ffffff;
-    background-color: #4d5ae5;
-    cursor: pointer;
     margin: 0 auto;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0px 4px 6px rgba(46, 47, 66, 0.1),
                 0px 2px 4px rgba(46, 47, 66, 0.06);
+
+    display: inline-block;
+    padding: 16px 32px;
+    background-color: #4d5ae5;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 4px;
+    text-decoration: none; 
+    border: none;
+    cursor: pointer;
 }
 
 .hero-button:hover,
@@ -810,10 +813,10 @@ img {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 250ms ease, visibility 250ms ease;
+    transition: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.is-open {
+.overlay-they:target {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -849,6 +852,7 @@ img {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    transition: background-color 0.3s, border-color 0.3s;
 
 }
 
@@ -857,6 +861,18 @@ img {
     width:8px;
     height: 8px;
     fill: #2e2f42;
+    transition: fill 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    background-color: #4d5ae5; 
+    border-color: #4d5ae5;
+}
+
+.modal-close:hover svg
+.modal-close:focus svg{
+    fill: #fff;
 }
 
 .modal-title {
@@ -886,6 +902,13 @@ img {
 
 .modal-input-subscr::placeholder {
     color: #fff;
+}
+
+.modal-input-subscr:focus,
+.modal-input-subscr:focus-visible {
+    outline: none;
+    border-color: #4d5ae5;
+    box-shadow: 0 0 0 2px rgba(77, 90, 229, 0.4);
 }
 
 .modal-input {
@@ -926,7 +949,7 @@ button:disabled {
     position: relative;
 }
 
-.icon-wriper-users-one {
+/*.icon-wriper-users-one {
     position: relative;
 } 
 .icon-wriper-users-one svg {
@@ -935,21 +958,22 @@ button:disabled {
     height: 24px;
     left: 16px;
     top: 8px;
-}
+} */
 
 .icon-wriper-users svg{
+    position: absolute;
     top: 8px;
     left: 16px;
     fill: #2E2F42;
     width: 18px;
     height: 24px;
+    transition: fill 0.3s;
 }
 
-/*.icon-wriper-users:hover,
-.icon-wriper-users:focus {
-    color: #4d5ae5;
+.icon-wriper-users input:focus + svg {
+    fill: #4d5ae5;
     outline: none;
-} */
+} 
 
 .modal-phone-svg {
     fill: #2E2F42;
@@ -1041,13 +1065,19 @@ button:disabled {
     transition: background-color 0.2s, border-color 0.2s;
 }
 
-.checkbox-input:checked + .modal-chack-label span {
+.modal-chack-label span svg {
+    display: none; /* скрываем галочку по умолчанию */
+}
+
+
+.checkbox-input:checked + .modal-chack-label span svg {
     background-color: #4d5ae5;
     border-color: #4d5ae5;
+    display: block;
 }
 
 /* Добавляем галочку */
-.checkbox-input:checked + .modal-chack-label span::after {
+/*.checkbox-input:checked + .modal-chack-label span::after {
     content: '';
     display: block;
     width: 6px;
@@ -1056,7 +1086,7 @@ button:disabled {
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
-
+*/
 
 .modal-info {
     text-decoration: underline;
@@ -1097,8 +1127,7 @@ button:disabled {
 }
 
 .footer-checkbox {
-    display: flex;
-    flex-direction: column;
+    margin-left: auto;
 }
 
 .footer-subscibe {
